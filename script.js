@@ -34,7 +34,7 @@ form.addEventListener('submit', async (e) => {
 
     if (videoUrl) {
         const { url, title, description } = videoUrl;
-        const downloadUrl = `${API_BASE_URL}/api/download?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title || 'instagram_reel')}`;
+        const downloadUrl = `http://localhost:3000/api/download?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title || 'instagram_reel')}`;
         
         downloadContainer.innerHTML = `
             <div class="download-buttons">
@@ -90,7 +90,7 @@ function showError(message) {
 
 async function fetchVideoUrl(reelUrl) {
     try {
-        const response = await fetch(`${API_BASE_URL}/api/reel`, {
+        const response = await fetch('http://localhost:3000/api/reel', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
